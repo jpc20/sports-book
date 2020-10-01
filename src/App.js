@@ -22,15 +22,16 @@ class App extends Component {
 
   renderGames() {
     const today = new Date();
-    // Figure out how to add 0 if the date month in 1 number
-    const date = today.getFullYear()+'-0'+(today.getMonth()+1)+'-'+today.getDate();
-    console.log(date);
+    const month = (today.getMonth() + 1) < 10 ? '0' + (today.getMonth() + 1) : (today.getMonth() + 1)
+    const day = (today.getDate() + 1) < 10 ? '0' + (today.getDate()) : (today.getDate())
+    const currentDate = today.getFullYear().toString() + month + day;
+
     return (
       <section>
         {this.state.games.map((game) => {
           let gameDay = game.Date;
-          if (gameDay && parseInt(gameDay.split('T')[0].replace(/\-/g, '')) > parseInt(date.split('T')[0].replace(/\-/g, ''))) {
-            return <p>{game.AwayTeam} vs. {game.HomeTeam} {gameDay.split('T')[0].replace(/\-/g, '')} {date.split('T')[0].replace(/\-/g, '')}</p>
+          if (gameDay && parseInt(gameDay.split('T')[0].replace(/\-/g, '')) > parseInt(currentDate)) {
+            return <p>{game.AwayTeam} vs. {game.HomeTeam} {gameDay.split('T')[0].replace(/\-/g, '')} {currentDate}</p>
           }
         })}
       </section>
