@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import GamesIndex from './games/GamesIndex.js';
+import MyNav from './MyNav.js';
 import './App.css';
 
 class App extends Component {
@@ -24,10 +25,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1>Sports Book</h1>
-          <h2>Games</h2>
-        </header>
+        <MyNav />
         <GamesIndex games={this.state.games}/>
       </div>
     );

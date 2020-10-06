@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import GameCard from './GameCard.js';
 
 class GamesIndex extends Component {
@@ -10,12 +10,14 @@ class GamesIndex extends Component {
     const currentDate = today.getFullYear().toString() + month + day;
 
     return (
-      <Container>
+      <Container fluid="md">
         {this.props.games.map((game) => {
           let gameDay = game.Date;
           if (gameDay && parseInt(gameDay.split('T')[0].replace(/\-/g, '')) > parseInt(currentDate)) {
             return (
-              <GameCard game={game} />
+              <Row className="justify-content-md-center">
+                <GameCard game={game} />
+              </Row>
             )
           }
         })}
