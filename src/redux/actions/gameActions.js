@@ -9,5 +9,5 @@ export const fetchGames = () => dispatch => {
         type: FETCH_GAMES,
         payload: games
       })
-    )
+    );
 };

@@ -1,4 +1,4 @@
-import { FETCH_GAMES } from '../actions/types'
+import { FETCH_GAMES } from '../actions/types';
 
 const initialState = {
   games: []

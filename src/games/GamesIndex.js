@@ -1,9 +1,24 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Container, Row } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { fetchGames } from '../redux/actions/gameActions';
 import GameCard from './GameCard.js';
 
 class GamesIndex extends Component {
-  renderGames() {
+
+  componentWillUpdate() {
+    console.log('test');
+    this.props.fetchGames();
+  }
+
+  // constructor(props) {
+  //   super(props)
+  //     console.log('test');
+  //     this.props.fetchGames();
+  // }
+
+  renderGames(games) {
     const today = new Date();
     const month = (today.getMonth() + 1) < 10 ? '0' + (today.getMonth() + 1) : (today.getMonth() + 1)
     const day = (today.getDate() + 1) < 10 ? '0' + (today.getDate()) : (today.getDate())
@@ -11,7 +26,7 @@ class GamesIndex extends Component {
 
     return (
       <Container fluid="md">
-        {this.props.games.map((game) => {
+        {games.map((game) => {
           let gameDay = game.Date;
           if (gameDay && parseInt(gameDay.split('T')[0].replace(/\-/g, '')) > parseInt(currentDate)) {
             return (
@@ -28,10 +43,22 @@ class GamesIndex extends Component {
   render() {
     return (
       <div>
-        {this.renderGames()}
+        {console.log(this.props)}
+        {this.renderGames(this.props.games)}
       </div>
     )
   }
 }
 
-export default GamesIndex;
+GamesIndex.propTypes = {
+  fetchGames: PropTypes.func.isRequired,
+  games: PropTypes.array.isRequired
+}
+
+const mapStateToProps = (state) => {
+  return {
+    games: state.games.items
+  }
+};
+
+export default connect(mapStateToProps, { fetchGames })(GamesIndex);
