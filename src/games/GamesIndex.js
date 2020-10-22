@@ -4,6 +4,7 @@ import { Container, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { fetchGames } from '../redux/actions/gameActions';
 import GameCard from './GameCard.js';
+import './GamesIndex.css'
 
 class GamesIndex extends Component {
 
@@ -19,17 +20,17 @@ class GamesIndex extends Component {
     const currentDate = today.getFullYear().toString() + month + day;
 
     return (
-      <Container fluid="md">
+      <Container class='containter'>
+        <Row class='row'>
         {games.map((game) => {
           let gameDay = game.Date;
           if (gameDay && parseInt(gameDay.split('T')[0].replace(/\-/g, '')) > parseInt(currentDate)) {
             return (
-              <Row className="justify-content-md-center">
                 <GameCard game={game} />
-              </Row>
             )
           }
         })}
+      </Row>
       </Container>
     );
   }
