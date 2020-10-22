@@ -7,16 +7,10 @@ import GameCard from './GameCard.js';
 
 class GamesIndex extends Component {
 
-  componentWillUpdate() {
-    console.log('test');
-    this.props.fetchGames();
+  constructor(props) {
+    super(props)
+      this.props.fetchGames();
   }
-
-  // constructor(props) {
-  //   super(props)
-  //     console.log('test');
-  //     this.props.fetchGames();
-  // }
 
   renderGames(games) {
     const today = new Date();
@@ -43,7 +37,6 @@ class GamesIndex extends Component {
   render() {
     return (
       <div>
-        {console.log(this.props)}
         {this.renderGames(this.props.games)}
       </div>
     )
@@ -55,10 +48,8 @@ GamesIndex.propTypes = {
   games: PropTypes.array.isRequired
 }
 
-const mapStateToProps = (state) => {
-  return {
-    games: state.games.items
-  }
-};
+const mapStateToProps = state => ({
+  games: state.games.items
+});
 
 export default connect(mapStateToProps, { fetchGames })(GamesIndex);

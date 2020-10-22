@@ -21,7 +21,6 @@ class GameCard extends Component {
         underdog: this.props.game.AwayTeam + ' (+' + this.props.game.AwayTeamMoneyLine + ')'
       })
     }
-    console.log(this.state);
   }
   render() {
     return (
