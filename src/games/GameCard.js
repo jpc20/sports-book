@@ -28,8 +28,8 @@ class GameCard extends Component {
       <div class='game-card'>
         <img src="https://images.pexels.com/photos/2570139/pexels-photo-2570139.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
         <div>
-          <div>{this.props.game.AwayTeam} vs. {this.props.game.HomeTeam}</div>
-          <div>
+          <div class='title'>{this.props.game.AwayTeam} vs. {this.props.game.HomeTeam}</div>
+          <div class='odds'>
             Favorite: {this.state.favorite}
             <br />
             Underdog: {this.state.underdog}
