@@ -25,7 +25,7 @@ class GameCard extends Component {
   }
   render() {
     return (
-      <Card>
+      <Card class='game-card'>
         <Card.Img variant="top" src="https://images.pexels.com/photos/2570139/pexels-photo-2570139.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
         <Card.Body>
           <Card.Title>{this.props.game.AwayTeam} vs. {this.props.game.HomeTeam}</Card.Title>

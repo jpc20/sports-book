@@ -20,17 +20,15 @@ class GamesIndex extends Component {
     const currentDate = today.getFullYear().toString() + month + day;
 
     return (
-      <Container class='containter'>
-        <Row class='row'>
+      <Container bg='container'>
         {games.map((game) => {
           let gameDay = game.Date;
           if (gameDay && parseInt(gameDay.split('T')[0].replace(/\-/g, '')) > parseInt(currentDate)) {
             return (
-                <GameCard game={game} />
+                <GameCard game={game} bg='card' />
             )
           }
         })}
-      </Row>
       </Container>
     );
   }
