@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Container, Row } from 'react-bootstrap';
+// import { Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { fetchGames } from '../redux/actions/gameActions';
 import GameCard from './GameCard.js';
@@ -20,16 +20,16 @@ class GamesIndex extends Component {
     const currentDate = today.getFullYear().toString() + month + day;
 
     return (
-      <Container bg='container'>
+      <section class='game-container'>
         {games.map((game) => {
           let gameDay = game.Date;
           if (gameDay && parseInt(gameDay.split('T')[0].replace(/\-/g, '')) > parseInt(currentDate)) {
             return (
-                <GameCard game={game} bg='card' />
+                <GameCard game={game} />
             )
           }
         })}
-      </Container>
+      </section>
     );
   }
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card } from 'react-bootstrap';
+// import { Card } from 'react-bootstrap';
 import './GameCard.css';
 
 class GameCard extends Component {
@@ -25,20 +25,20 @@ class GameCard extends Component {
   }
   render() {
     return (
-      <Card class='game-card'>
-        <Card.Img variant="top" src="https://images.pexels.com/photos/2570139/pexels-photo-2570139.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
-        <Card.Body>
-          <Card.Title>{this.props.game.AwayTeam} vs. {this.props.game.HomeTeam}</Card.Title>
-          <Card.Text>
+      <div class='game-card'>
+        <img src="https://images.pexels.com/photos/2570139/pexels-photo-2570139.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+        <div>
+          <div>{this.props.game.AwayTeam} vs. {this.props.game.HomeTeam}</div>
+          <div>
             Favorite: {this.state.favorite}
             <br />
             Underdog: {this.state.underdog}
-          </Card.Text>
-        </Card.Body>
-        <Card.Footer>
+          </div>
+        </div>
+        <div>
           <small className="text-muted">Forecast: {this.props.game.ForecastDescription}</small>
-        </Card.Footer>
-      </Card>
+        </div>
+      </div>
     )
   }
 }

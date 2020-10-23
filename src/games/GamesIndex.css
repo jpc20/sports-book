@@ -1,9 +1,6 @@
-.bg-container {
+.game-container {
   display: flex;
   justify-content: center;
-  flex-direction: column;
-}
-
-.bg-card {
-  width: '3rem';
+  flex-flow: row wrap;
+  margin: 1rem;
 }
