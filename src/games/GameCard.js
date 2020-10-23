@@ -24,12 +24,23 @@ class GameCard extends Component {
       })
     }
   }
+  renderImage() {
+    if (this.props.game.AwayTeam == 'SF' || this.props.game.HomeTeam == 'SF') {
+      return (
+        <div class='helmet-faceoff'>
+          <img src={ helmet } class='helmet-home'/>
+          <img src={helmet} class='helmet-away'/>
+        </div>
+      )
+    } else {
+      return <img src="https://images.pexels.com/photos/2570139/pexels-photo-2570139.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+    }
+  }
   render() {
     return (
       <div class='game-card'>
-        // <img src="https://images.pexels.com/photos/2570139/pexels-photo-2570139.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
-        <img src={ helmet } />
         <div>
+          {this.renderImage()}
           <div class='title'>{this.props.game.AwayTeam} vs. {this.props.game.HomeTeam}</div>
           <div class='odds'>
             Favorite: {this.state.favorite}

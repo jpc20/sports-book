@@ -27,6 +27,20 @@
   font-size: 1rem;
 }
 
+.helmet-home {
+  width: 9rem;
+}
+
+.helmet-away {
+  width: 9rem;
+  transform: scaleX(-1)
+}
+
+.helmet-faceoff {
+  display: flex;
+  flex-direction: row;
+}
+
 
 img {
   border-radius: 8px;
