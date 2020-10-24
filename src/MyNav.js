@@ -5,9 +5,9 @@ class MyNav extends Component {
   render() {
     return (
       <Navbar bg="primary" variant="dark">
-        <Navbar.Brand href="#home">Sports Book</Navbar.Brand>
+        <Navbar.Brand href="/">Sports Book</Navbar.Brand>
         <Nav className="mr-auto">
-          <Nav.Link href="#home">Upcoming Games</Nav.Link>
+          <Nav.Link href="/">Upcoming Games</Nav.Link>
           <Nav.Link href="#features">Past Games</Nav.Link>
         </Nav>
         <Form inline>
