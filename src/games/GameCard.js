@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { Card } from 'react-bootstrap';
 import helmet from '../assets/helmet.jpg'
 import './GameCard.css';
 
@@ -29,7 +28,7 @@ class GameCard extends Component {
       return (
         <div class='helmet-faceoff'>
           <img src={ helmet } class='helmet-home'/>
-          <img src={helmet} class='helmet-away'/>
+          <img src={ helmet } class='helmet-away'/>
         </div>
       )
     } else {
