@@ -8,7 +8,7 @@ class MyNav extends Component {
         <Navbar.Brand href="/">Sports Book</Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href="/">Upcoming Games</Nav.Link>
-          <Nav.Link href="#features">Past Games</Nav.Link>
+          <Nav.Link href="/past-games">Past Games</Nav.Link>
         </Nav>
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />

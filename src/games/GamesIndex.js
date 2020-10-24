@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import { Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { fetchGames } from '../redux/actions/gameActions';
 import GameCard from './GameCard.js';
@@ -22,10 +21,22 @@ class GamesIndex extends Component {
     return (
       <section class='game-container'>
         {games.map((game) => {
-          let gameDay = game.Date;
-          if (gameDay && parseInt(gameDay.split('T')[0].replace(/\-/g, '')) > parseInt(currentDate)) {
+          const gameDay = game.Date;
+          if (
+            gameDay &&
+            parseInt(gameDay.split('T')[0].replace(/\-/g, '')) > parseInt(currentDate) &&
+            !this.props.past
+          ) {
             return (
                 <GameCard game={game} />
+            )
+          } else if (
+                    gameDay &&
+                    parseInt(gameDay.split('T')[0].replace(/\-/g, '')) < parseInt(currentDate) &&
+                    this.props.past
+                  ){
+            return (
+              <GameCard game={game} />
             )
           }
         })}

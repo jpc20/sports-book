@@ -15,7 +15,10 @@ class App extends Component {
           <MyNav />
           <Switch>
             <Route path='/' component={GamesIndex} exact/>
-            <Route path='/upcoming' component={GamesIndex} exact/>
+            <Route path='/upcoming' component={GamesIndex} />
+            <Route path='/past-games' render={(props) => (
+                <GamesIndex {...props} past={true} />
+              )} />
           </Switch>
         </div>
       </Provider>
