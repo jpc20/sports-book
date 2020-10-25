@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import helmet from '../assets/helmet.jpg'
+import { Link } from "react-router-dom";
 import './GameCard.css';
 
 class GameCard extends Component {
@@ -37,20 +38,25 @@ class GameCard extends Component {
   }
   render() {
     return (
-      <div class='game-card'>
-        <div>
-          {this.renderImage()}
-          <div class='title'>{this.props.game.AwayTeam} vs. {this.props.game.HomeTeam}</div>
-          <div class='odds'>
-            Favorite: {this.state.favorite}
-            <br />
-            Underdog: {this.state.underdog}
+      <Link to={{
+        pathname: `/game/${this.props.game.GameKey}`,
+        state: {gameProps: this.props.game}
+        }}>
+        <div class='game-card'>
+          <div>
+            {this.renderImage()}
+            <div class='title'>{this.props.game.AwayTeam} vs. {this.props.game.HomeTeam}</div>
+            <div class='odds'>
+              Favorite: {this.state.favorite}
+              <br />
+              Underdog: {this.state.underdog}
+            </div>
+          </div>
+          <div>
+            <small className="text-muted">Forecast: {this.props.game.ForecastDescription}</small>
           </div>
         </div>
-        <div>
-          <small className="text-muted">Forecast: {this.props.game.ForecastDescription}</small>
-        </div>
-      </div>
+      </Link>
     )
   }
 }

@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import store from './redux/store'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import GamesIndex from './games/GamesIndex.js';
+import singleGame from './games/singleGame.js';
 import MyNav from './MyNav.js';
 import './App.css';
 
@@ -19,7 +20,8 @@ class App extends Component {
             <Route path='/past-games' render={(props) => (
                 <GamesIndex {...props} past={true} />
               )} />
-          </Switch>
+            <Route path='/game/:id' component={singleGame} />
+            </Switch>
         </div>
       </Provider>
     );
